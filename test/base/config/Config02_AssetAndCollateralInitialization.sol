@@ -29,7 +29,7 @@ contract Config02_AssetAndCollateralInitialization is Config01_OraclesAndAssets 
         yoloAssetsArray.push(
             YoloAssets(
                 "Yolo JPY",
-                "JPYY",
+                "yJPY",
                 18,
                 OracleConfig("JPY / USD", 0.0069 * 1e8),
                 YoloAssetConfiguration(10_000_000_000 * 1e18, 10_000_000_000 * 1e18)
@@ -38,7 +38,7 @@ contract Config02_AssetAndCollateralInitialization is Config01_OraclesAndAssets 
         yoloAssetsArray.push(
             YoloAssets(
                 "Yolo KRW",
-                "KRWY",
+                "yKRW",
                 18,
                 OracleConfig("KRW / USD", 71_000),
                 YoloAssetConfiguration(100_000_000_000 * 1e18, 100_000_000_000 * 1e18)
@@ -47,7 +47,7 @@ contract Config02_AssetAndCollateralInitialization is Config01_OraclesAndAssets 
         yoloAssetsArray.push(
             YoloAssets(
                 "Yolo Gold",
-                "XAUY",
+                "yXAU",
                 18,
                 OracleConfig("XAU / USD", 3_201 * 1e8),
                 YoloAssetConfiguration(1_000_000 * 1e18, 1_000_000 * 1e18)
@@ -56,7 +56,7 @@ contract Config02_AssetAndCollateralInitialization is Config01_OraclesAndAssets 
         yoloAssetsArray.push(
             YoloAssets(
                 "Yolo NVDIA",
-                "NVDIA-Y",
+                "yNVDA",
                 18,
                 OracleConfig("NVDIA / USD", 134 * 1e8),
                 YoloAssetConfiguration(10_000 * 1e18, 10_000 * 1e18)

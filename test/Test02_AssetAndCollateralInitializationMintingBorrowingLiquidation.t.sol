@@ -111,10 +111,10 @@ contract Test02_AssetAndCollateralInitializationMintingBorrowingLiquidation is
         }
 
         // Set convenience variables
-        jpyYAsset = yoloAssetToAddress["JPYY"];
-        krwYAsset = yoloAssetToAddress["KRWY"];
-        goldYAsset = yoloAssetToAddress["XAUY"];
-        nvidiaYAsset = yoloAssetToAddress["NVDIA-Y"];
+        jpyYAsset = yoloAssetToAddress["yJPY"];
+        krwYAsset = yoloAssetToAddress["yKRW"];
+        goldYAsset = yoloAssetToAddress["yXAU"];
+        nvidiaYAsset = yoloAssetToAddress["yNVDA"];
         wbtcAsset = deployedAssets["WBTC"];
         ptUsdeAsset = deployedAssets["PT-sUSDe-31JUL2025"];
 
@@ -161,7 +161,7 @@ contract Test02_AssetAndCollateralInitializationMintingBorrowingLiquidation is
 
     // Test pair config setup
     function test_Test02_Case01_PairConfigSetup() public {
-        // Check pair config for WBTC-JPYY pair
+        // Check pair config for WBTC-yJPY pair
         (address collateral, address yoloAsset, uint256 interestRate, uint256 ltv, uint256 liquidationPenalty) =
             yoloProtocolHook.pairConfigs(wbtcAsset, jpyYAsset);
 

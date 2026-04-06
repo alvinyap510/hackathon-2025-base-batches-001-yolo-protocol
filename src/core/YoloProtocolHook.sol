@@ -903,7 +903,13 @@ contract YoloProtocolHook is Ownable, BaseHook {
             // if user is selling USDC for USY
             if (Currency.unwrap(curIn) == address(usdc)) {
                 // pull USDC from user → PM
-                curIn.settle(poolManager, sender, amountInOutPositive, /*burnClaim=*/ false);
+                curIn.settle(
+                    poolManager,
+                    sender,
+                    amountInOutPositive,
+                    /*burnClaim=*/
+                    false
+                );
 
                 // mint USY to user + fee to treasury
                 IYoloAsset(address(anchor)).mint(sender, netIn);
@@ -925,8 +931,20 @@ contract YoloProtocolHook is Ownable, BaseHook {
                 IYoloAsset(address(anchor)).burn(sender, amountInOutPositive);
 
                 // pay out USDC from PM → user & fee → treasury
-                curOut.settle(poolManager, sender, netIn, /*burnClaim=*/ false);
-                curOut.settle(poolManager, treasury, inFee, /*burnClaim=*/ false);
+                curOut.settle(
+                    poolManager,
+                    sender,
+                    netIn,
+                    /*burnClaim=*/
+                    false
+                );
+                curOut.settle(
+                    poolManager,
+                    treasury,
+                    inFee,
+                    /*burnClaim=*/
+                    false
+                );
                 emit HookSwapExecuted(
                     id,
                     sender,
@@ -953,13 +971,31 @@ contract YoloProtocolHook is Ownable, BaseHook {
 
             // 3) pull the full amount from the user into the PoolManager
             //    (this burns the user's ERC-20 and leaves a debit in PM)
-            curIn.settle(poolManager, sender, amountInOutPositive, /*burnClaim=*/ false);
+            curIn.settle(
+                poolManager,
+                sender,
+                amountInOutPositive,
+                /*burnClaim=*/
+                false
+            );
 
             // 4) mint claim-tokens in PM for the fee straight to the treasury
-            curIn.take(poolManager, treasury, inFee, /*mintClaim=*/ true);
+            curIn.take(
+                poolManager,
+                treasury,
+                inFee,
+                /*mintClaim=*/
+                true
+            );
 
             // 5) mint claim-tokens in PM for the net amount into this hook
-            curIn.take(poolManager, address(this), netIn, /*mintClaim=*/ true);
+            curIn.take(
+                poolManager,
+                address(this),
+                netIn,
+                /*mintClaim=*/
+                true
+            );
 
             // 6) burn those net claim-tokens to remove them from supply
             IYoloAsset(address(Currency.unwrap(curIn))).burn(address(this), netIn);

@@ -193,9 +193,7 @@ contract Test02_AssetAndCollateralInitializationMintingBorrowingLiquidation is
             address collateral,
             uint256 collateralSupplied,
             address yAsset,
-            uint256 yAssetMinted,
-            ,
-            ,
+            uint256 yAssetMinted,,,
             uint256 accruedInterest
         ) = yoloProtocolHook.positions(testUser1, wbtcAsset, jpyYAsset);
 

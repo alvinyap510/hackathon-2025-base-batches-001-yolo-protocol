@@ -21,7 +21,10 @@ contract YoloAsset is ERC20, Ownable {
      * @param   _symbol      The symbol of the token.
      * @param   _decimals    The number of decimals for the token.
      */
-    constructor(string memory _name, string memory _symbol, uint8 _decimals) ERC20(_name, _symbol) Ownable(msg.sender) {
+    constructor(string memory _name, string memory _symbol, uint8 _decimals)
+        ERC20(_name, _symbol)
+        Ownable(msg.sender)
+    {
         _customDecimals = _decimals;
     }
 

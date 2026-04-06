@@ -20,7 +20,11 @@ contract Test01_DeployYoloProtocolHookAndOracle is
     address public usdc;
     uint256 public hookSwapFee = 250; // 0.25%
 
-    function setUp() public virtual override(Base01_DeployMockOraclesAndAssets, Base02_DeployMockUniswapV4PoolManager) {
+    function setUp()
+        public
+        virtual
+        override(Base01_DeployMockOraclesAndAssets, Base02_DeployMockUniswapV4PoolManager)
+    {
         Base01_DeployMockOraclesAndAssets.setUp();
         Base02_DeployMockUniswapV4PoolManager.setUp();
 
